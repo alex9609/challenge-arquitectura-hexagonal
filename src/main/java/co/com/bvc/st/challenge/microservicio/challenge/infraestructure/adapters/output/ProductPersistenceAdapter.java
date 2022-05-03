@@ -20,10 +20,8 @@ import java.util.Optional;
 @Component
 public class ProductPersistenceAdapter implements IProductPersistencePort {
 
+    @Autowired
     private IProductRepository productRepository;
-
-
-
 
     @Override
     public boolean createProduct(Product product) {
@@ -32,7 +30,7 @@ public class ProductPersistenceAdapter implements IProductPersistencePort {
             Product productValidated = productOptional.orElseThrow(IllegalArgumentException::new);
 
             boolean existsProduct = true;
-                   // validateExistingProducts(productValidated.getIdProduct());
+                   validateExistingProducts(productValidated.getIdProduct());
             if (!existsProduct) {
                 ProductJPA productJPA = new ProductJPA();
                 productJPA.setIdProduct(productValidated.getIdProduct());
@@ -52,9 +50,9 @@ public class ProductPersistenceAdapter implements IProductPersistencePort {
         values.forEach(x -> listProducts.add(new ProductDTOPersistence(x.getIdProduct(),x.getNameProduct(),x.getTypeProduct())));
         return listProducts;
     }
-    /*
+
     private boolean validateExistingProducts(int IdProduct) {
         List<ProductJPA> products = (List<ProductJPA>) productRepository.findAll();
         return products.stream().filter(x -> x.getIdProduct() == IdProduct).findAny().isPresent();
-    }*/
+    }
 }
