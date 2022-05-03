@@ -1,14 +1,10 @@
 package co.com.bvc.st.challenge.microservicio.challenge.infraestructure.adapters.input;
 
 
-import co.com.bvc.st.challenge.microservicio.challenge.application.ports.Service.ProductPortImpl;
 import co.com.bvc.st.challenge.microservicio.challenge.application.ports.input.IProductPort;
 import co.com.bvc.st.challenge.microservicio.challenge.application.ports.output.IProductPersistencePort;
-import co.com.bvc.st.challenge.microservicio.challenge.infraestructure.adapters.output.ProductPersistenceAdapter;
-import co.com.bvc.st.challenge.microservicio.challenge.infraestructure.adapters.output.ProductPersistenceAdapterDynamo;
 import co.com.bvc.st.challenge.microservicio.challenge.infraestructure.dto.ProductDTO;
 import co.com.bvc.st.challenge.microservicio.challenge.infraestructure.dto.ProductDTOPersistence;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

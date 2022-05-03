@@ -5,7 +5,6 @@ import co.com.bvc.st.challenge.microservicio.challenge.application.ports.input.I
 import co.com.bvc.st.challenge.microservicio.challenge.application.ports.output.IProductPersistencePort;
 import co.com.bvc.st.challenge.microservicio.challenge.infraestructure.adapters.input.ProductController;
 import co.com.bvc.st.challenge.microservicio.challenge.infraestructure.adapters.output.ProductPersistenceAdapter;
-//import co.com.bvc.st.challenge.microservicio.challenge.infraestructure.adapters.output.ProductPersistenceAdapterDynamo;
 import co.com.bvc.st.challenge.microservicio.challenge.infraestructure.adapters.output.ProductPersistenceAdapterDynamo;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;

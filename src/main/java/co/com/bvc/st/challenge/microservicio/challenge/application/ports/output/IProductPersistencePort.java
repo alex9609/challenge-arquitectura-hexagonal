@@ -1,7 +1,6 @@
 package co.com.bvc.st.challenge.microservicio.challenge.application.ports.output;
 
 import co.com.bvc.st.challenge.microservicio.challenge.domain.model.Product;
-import co.com.bvc.st.challenge.microservicio.challenge.infraestructure.dto.ProductDTO;
 import co.com.bvc.st.challenge.microservicio.challenge.infraestructure.dto.ProductDTOPersistence;
 import java.util.List;
 

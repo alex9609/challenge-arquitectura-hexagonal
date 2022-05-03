@@ -1,7 +1,5 @@
 package co.com.bvc.st.challenge.microservicio.challenge.infraestructure.jpa;
 
-import co.com.bvc.st.challenge.microservicio.challenge.domain.model.Product;
-import co.com.bvc.st.challenge.microservicio.challenge.infraestructure.dto.ProductDTOPersistence;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

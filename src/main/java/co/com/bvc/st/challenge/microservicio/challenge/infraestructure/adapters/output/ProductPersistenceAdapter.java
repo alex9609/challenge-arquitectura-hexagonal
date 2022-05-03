@@ -23,16 +23,13 @@ public class ProductPersistenceAdapter implements IProductPersistencePort {
     private IProductRepository productRepository;
 
 
-
-
     @Override
     public boolean createProduct(Product product) {
 
             Optional<Product> productOptional = Optional.ofNullable(product);
             Product productValidated = productOptional.orElseThrow(IllegalArgumentException::new);
 
-            boolean existsProduct = true;
-                   // validateExistingProducts(productValidated.getIdProduct());
+            boolean existsProduct = validateExistingProducts(productValidated.getIdProduct());
             if (!existsProduct) {
                 ProductJPA productJPA = new ProductJPA();
                 productJPA.setIdProduct(productValidated.getIdProduct());
@@ -52,9 +49,9 @@ public class ProductPersistenceAdapter implements IProductPersistencePort {
         values.forEach(x -> listProducts.add(new ProductDTOPersistence(x.getIdProduct(),x.getNameProduct(),x.getTypeProduct())));
         return listProducts;
     }
-    /*
+
     private boolean validateExistingProducts(int IdProduct) {
         List<ProductJPA> products = (List<ProductJPA>) productRepository.findAll();
         return products.stream().filter(x -> x.getIdProduct() == IdProduct).findAny().isPresent();
-    }*/
+    }
 }

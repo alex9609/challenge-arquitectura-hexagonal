@@ -2,7 +2,6 @@ package co.com.bvc.st.challenge.microservicio.challenge.domain.model;
 
 import co.com.bvc.st.challenge.microservicio.challenge.domain.exceptions.ProductException;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Data
 public class Product {
