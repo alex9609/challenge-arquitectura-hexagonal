@@ -7,6 +7,7 @@ import co.com.bvc.st.challenge.microservicio.challenge.infraestructure.dto.Produ
 import co.com.bvc.st.challenge.microservicio.challenge.infraestructure.dto.ProductDTOPersistence;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.annotation.Validated;
@@ -31,8 +32,8 @@ public class ProductController {
         this.iproduct = iproduct;
         this.iProductPersistencePort = productPersistencePort;
     }
-
     @PostMapping("/createProduct")
+    @CrossOrigin(origins = "*", methods = {RequestMethod.POST})
     public ResponseEntity<Map<String, String>> postProduct(@Valid @RequestBody ProductDTO productdto) throws MethodArgumentNotValidException {
         Map<String, String> result = new HashMap<>();
         boolean created = this.iproduct.createProduct(productdto.getIdProduct(), productdto.getNameProduct(), productdto.getTypeProduct());
@@ -48,6 +49,7 @@ public class ProductController {
     }
 
     @GetMapping("/consult")
+    @CrossOrigin(origins = "*", methods = {RequestMethod.GET})
     public ResponseEntity<List<ProductDTOPersistence>> getProduct() {
         List<ProductDTOPersistence> products = iProductPersistencePort.getListProducts();
         products.forEach(System.out::println);

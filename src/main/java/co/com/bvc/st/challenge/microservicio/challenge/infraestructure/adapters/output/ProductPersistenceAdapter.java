@@ -29,8 +29,7 @@ public class ProductPersistenceAdapter implements IProductPersistencePort {
             Optional<Product> productOptional = Optional.ofNullable(product);
             Product productValidated = productOptional.orElseThrow(IllegalArgumentException::new);
 
-            boolean existsProduct = true;
-                   validateExistingProducts(productValidated.getIdProduct());
+            boolean existsProduct = validateExistingProducts(productValidated.getIdProduct());
             if (!existsProduct) {
                 ProductJPA productJPA = new ProductJPA();
                 productJPA.setIdProduct(productValidated.getIdProduct());
