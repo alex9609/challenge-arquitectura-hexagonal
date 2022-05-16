@@ -11,4 +11,6 @@ public interface IProductPersistencePort {
     boolean createProduct(Product product);
 
     List<ProductDTOPersistence> getListProducts();
+
+    List<ProductDTOPersistence> getListProducts(String typeProduct);
 }

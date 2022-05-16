@@ -52,7 +52,13 @@ public class ProductController {
     @CrossOrigin(origins = "*", methods = {RequestMethod.GET})
     public ResponseEntity<List<ProductDTOPersistence>> getProduct() {
         List<ProductDTOPersistence> products = iProductPersistencePort.getListProducts();
-        products.forEach(System.out::println);
+        return new ResponseEntity<>(products, HttpStatus.OK);
+    }
+
+    @GetMapping("/consult/{typeProduct}")
+    @CrossOrigin(origins = "*", methods = {RequestMethod.GET})
+    public ResponseEntity<List<ProductDTOPersistence>> getProductByType(@PathVariable String typeProduct) {
+        List<ProductDTOPersistence> products = iProductPersistencePort.getListProducts(typeProduct);
         return new ResponseEntity<>(products, HttpStatus.OK);
     }
 }

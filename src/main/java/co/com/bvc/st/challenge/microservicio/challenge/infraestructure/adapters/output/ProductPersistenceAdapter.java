@@ -16,6 +16,7 @@ import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Component
 public class ProductPersistenceAdapter implements IProductPersistencePort {
@@ -46,6 +47,15 @@ public class ProductPersistenceAdapter implements IProductPersistencePort {
     public List<ProductDTOPersistence> getListProducts() {
         List<ProductDTOPersistence> listProducts = new ArrayList<>();
         List<ProductJPA> values = (List<ProductJPA>)productRepository.findAll();
+        values.forEach(x -> listProducts.add(new ProductDTOPersistence(x.getIdProduct(),x.getNameProduct(),x.getTypeProduct())));
+        return listProducts;
+    }
+
+    @Override
+    public List<ProductDTOPersistence> getListProducts(String typeProduct) {
+        List<ProductDTOPersistence> listProducts = new ArrayList<>();
+        List<ProductJPA> values = (List<ProductJPA>)productRepository.findAll();
+        values = values.stream().filter(x -> x.getTypeProduct().equals(typeProduct)).collect(Collectors.toList());
         values.forEach(x -> listProducts.add(new ProductDTOPersistence(x.getIdProduct(),x.getNameProduct(),x.getTypeProduct())));
         return listProducts;
     }
